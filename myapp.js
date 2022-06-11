@@ -9,43 +9,60 @@ const score_btn = document.querySelector('.score-btn');
 let final_score = 3;
 let player1_score = 0;
 let player2_score = 0;
+let isGameOver = false;
 const h2 = document.querySelector('h2');
 
 playing_to.addEventListener('change', (e) => {
-    console.log(e.target.value);
-    final_score = e.target;
+    // console.log('final score change' + e.target.value);
+    final_score = e.target.value;
+    // console.log('final_score ' + final_score);
+    resetGame(final_score);
 })
 
 player_one.addEventListener('click', (e) => {
-    player1_score++;
-    h2.innerText = `${player1_score} to ${player2_score}`;
-    console.log(score1.innerText);
-    if(player1_score == final_score){
-        score1.style.color = 'green';
-        score2.style.color = 'red';
-        score_btn.disabled = true;
+    if(!isGameOver){
+        player1_score++;
+        score1.textContent = player1_score;
+        // console.log('player1 score ' + player1_score);
+        // console.log('final score in player ' + final_score);
+        if(player1_score >= final_score){
+            score1.style.color = 'green';
+            score2.style.color = 'red';
+            isGameOver = true;
+        }
     }
+   
 
 })
 
 player_two.addEventListener('click', (e) => {
-    player2_score++;
-    h2.innerText = `${player1_score} to ${player2_score}`;
-    if(player2_score == final_score){
-        score1.style.color = 'red';
-        score2.style.color = 'green';
-        score_btn.disabled = true;
+    if(!isGameOver){
+        player2_score++;
+        score2.textContent = player2_score;
+        // console.log('player2 score ' + player2_score);
+        // console.log('final score in player ' + final_score);
+        if(player2_score >= final_score){
+            score1.style.color = 'red';
+            score2.style.color = 'green';
+            isGameOver = true;
+        }
     }
+
 })
 
-reset.addEventListener('click', (e) => {
-    h2.innerText= "0 to 0";
-    final_score = 3;
+function resetGame(val) {
+    final_score = val;
     player1_score = 0;
     player2_score = 0;
-    score1 = 0;
-    score2 = 0;
-    score_btn.disabled = false;
+    isGameOver = false;
+    score1.textContent = player1_score;
+    score2.textContent = player2_score;
+    score1.style.color= 'black';
+    score2.style.color = 'black';
+}
+
+reset.addEventListener('click', (e) => {
+    resetGame(playing_to.value);
 })
 
 

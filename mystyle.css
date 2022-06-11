@@ -1,0 +1,74 @@
+* {
+    font-family: Barlow, sans-serif;
+}
+
+body{
+    display:grid;
+    justify-items: center;
+}
+
+section {
+    display: grid;
+    height: 60vh;
+    grid-template-rows: 50% 10% 30% 10%;
+    margin-top: 4rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    
+}
+
+#ping-pong{
+    max-width: 100%;
+    max-height: 100%;
+    grid-row: 1 / 2;
+}
+
+h1 {
+    grid-row:2/3;
+    padding: 1rem;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 2px 0 rgba(0, 0, 0, 0.19);
+    margin: 0;
+    font-size: 16px;
+    align-self: center;
+}
+
+#contents{
+    margin-left: 1rem;
+}
+
+h2 {
+    font-size: 40px;
+    
+}
+
+h3{
+    font-weight: 100;
+}
+
+#score-label {
+    font-weight: 600;
+}
+
+#buttons {
+    grid-row: 4/-1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.button {
+    font-size: 16px;
+    color:white;
+    border: 0.5px solid white;
+    border-radius: 7px;
+}
+
+#player-one {
+    background-color: #44bf40;
+}
+
+#player-two {
+    background-color: #383cc7;
+}
+
+#reset {
+    background-color: #ee1711;
+}
